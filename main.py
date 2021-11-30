@@ -3,30 +3,43 @@ import tkinter as tk
 from tkinter import Canvas, Text
 import os
 
-dirs: str = ["/mnt/h/Games", "/mnt/g/Games", "/mnt/f/Games"]
+dirs_: str = ["H:/Games", "G:/Games", "F:/Games"]
 exceptions: "list[str]" = ["win", "-", "_", "pc", "a"]
 
 root = tk.Tk()
 
-Canvas(root, width=500, height=500, bg="white").pack()
+Canvas(root, width=500, height=500, bg="#263D42").pack()
 
 def main() -> None:
-    print(R.read_directories(dirs))
+    #print(R.read_dirextories(dirs))
     div()
+    print(R.get_Games(dirs_))
 
 def div() -> None:
-    tk.Frame(root, bg="white").place(x=0, y=0, relwidth=0.8, relheight=0.8)
+    tk.Frame(root, bg="white").place(relwidth=0.1, relheight=0.1, relx=0.1, rely=0.1)
 
 class R:
     @staticmethod
-    def read_directory(dir: str) -> 'list[str]':
+    def read_directory(dir: str) -> 'list[str]': #
         return os.listdir(dir)
+
     @staticmethod
-    def read_directories(dirs: 'list[str]') -> "list[str]":
+    def read_directories(dirs: 'list[str]') -> "list[str]": #
         result = []
         for dir in dirs:
-            result += R.read_directory(dir)
+            result += [dir + "/" + file for file in R.read_directory(dir)]
         return result
+    
+    @staticmethod        
+    def get_Games(dirs: list) -> list:
+        # result = array of (directory, [exe files])
+        result = []
+        for dir in R.read_directories(dirs):
+            try:
+                result.append((dir, [file for file in R.read_directory(dir) if file.endswith(".exe")]))
+            except: pass
+        return result
+
 
 if __name__ == "__main__":
     main()
