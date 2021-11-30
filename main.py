@@ -1,22 +1,24 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 import tkinter as tk
 from tkinter import Canvas, Text
 import os
 
+linux_dirs = ["/mnt/h/Games", "/mnt/g/Games", "/mnt/f/Games"]
 dirs_: str = ["H:/Games", "G:/Games", "F:/Games"]
 exceptions: "list[str]" = ["win", "-", "_", "pc", "a"]
 
 root = tk.Tk()
 
-Canvas(root, width=500, height=500, bg="#263D42").pack()
+canvas = Canvas(root, width=500, height=500, bg="#263D42")
+canvas.pack()
 
 def main() -> None:
     #print(R.read_dirextories(dirs))
     div()
-    print(R.get_Games(dirs_))
+    print(R.get_Games(linux_dirs))
 
 def div() -> None:
-    tk.Frame(root, bg="white").place(relwidth=0.1, relheight=0.1, relx=0.1, rely=0.1)
+    tk.Frame(canvas, bg="white").place(relwidth=0.1, relheight=0.1, relx=0.1, rely=0.1)
 
 class R:
     @staticmethod
