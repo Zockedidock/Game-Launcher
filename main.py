@@ -15,7 +15,10 @@ canvas.pack()
 def main() -> None:
     #print(R.read_dirextories(dirs))
     div()
-    print(R.get_Games(linux_dirs))
+    games = R.get_Games(linux_dirs)
+    for game in games:
+        for exe in game[1]:
+            print(R.get_Game_Name(exe))
 
 def div() -> None:
     tk.Frame(canvas, bg="white").place(relwidth=0.1, relheight=0.1, relx=0.1, rely=0.1)
@@ -41,6 +44,9 @@ class R:
                 result.append((dir, [file for file in R.read_directory(dir) if file.endswith(".exe")]))
             except: pass
         return result
+    @staticmethod
+    def get_Game_Name(exe: str) -> str:
+        return exe[:exe.find(".")]
 
 
 if __name__ == "__main__":
