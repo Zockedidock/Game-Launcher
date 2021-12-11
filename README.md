@@ -1,2 +1,3 @@
-# Game-Launcher
-Game Launcher written in Java & custom Swing Chain mod
+## Game-Launcher-TS
+
+simple Game Launcher written in Typescript

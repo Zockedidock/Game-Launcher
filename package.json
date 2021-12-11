@@ -1,0 +1,24 @@
+{
+    "name": "game-launcher-ts",
+    "version": "1.0.0",
+    "description": "A GameLauncher writter in TypeScript",
+    "main": "main.js",
+    "scripts": {
+        "start": "electron .",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Zockedidock/game-launcher-ts.git"
+    },
+    "author": "Joona Brückner",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/Zockedidock/game-launcher-ts/issues"
+    },
+    "homepage": "https://github.com/Zockedidock/game-launcher-ts#readme",
+    "devDependencies": {
+        "@types/electron": "^1.6.10",
+        "typescript": "^4.5.3"
+    }
+}
